@@ -26,9 +26,17 @@
         <servlet-name>SortowanieZad1</servlet-name>
         <servlet-class>SortowanieZad1</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>SortowanieZad1</servlet-name>
         <url-pattern>/SortowanieZad1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>WyborPiwaZad2</servlet-name>
+        <servlet-class>WyborPiwaZad2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WyborPiwaZad2</servlet-name>
+        <url-pattern>/WyborPiwaZad2</url-pattern>
     </servlet-mapping>
 </web-app>

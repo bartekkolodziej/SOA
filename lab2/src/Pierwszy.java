@@ -22,6 +22,11 @@ public class Pierwszy extends HttpServlet {
         out.println("<head><title>Pierwszy Servlet</title></head>");
         out.println("<body>");
         out.println("<p>Witaj, " + name + ", masz " + age + " lat</p>");
+        if (age > 18) {
+            out.println("<a href='/doradcaPiwnyForm.html'>Doradca Piwny</a> ");
+        } else {
+            out.println("<p>Sorry mordo, nie masz 18 lat i nie możesz skorzystać z usług Doradcy Piwnego</p>");
+        }
         out.println("</body>");
         out.println("</html>");
         out.close();
