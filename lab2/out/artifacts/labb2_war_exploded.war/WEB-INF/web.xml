@@ -39,4 +39,22 @@
         <servlet-name>WyborPiwaZad2</servlet-name>
         <url-pattern>/WyborPiwaZad2</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>WalidacjaDanych</servlet-name>
+        <servlet-class>KsiegaGosci.WalidacjaDanych</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WalidacjaDanych</servlet-name>
+        <url-pattern>/WalidacjaDanych</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DodajWpis</servlet-name>
+        <servlet-class>KsiegaGosci.DodajWpis</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DodajWpis</servlet-name>
+        <url-pattern>/DodajWpis</url-pattern>
+    </servlet-mapping>
 </web-app>
