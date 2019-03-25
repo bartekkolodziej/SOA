@@ -5,23 +5,38 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-   <f:view>
-      <h:outputLabel value="Hello, world"/>
-   </f:view>
+<f:view>
+    <h:outputLabel value="Hello, world"/>
+</f:view>
 
 <h:head>
 
 </h:head>
 
 <h:body>
-   <h1>Sprawdz czy mmasz szczescie w losowaniu</h1>
-   <h:form>
-      <h:outputLabel>Podaj swoje dane: </h:outputLabel> <br/>
-      PESEL <h:inputText /> <br/>
-      IMIE <h:inputText /> <br/>
-      WIEK <h:inputText /> <br/>
+    <h1>Sprawdz czy mmasz szczescie w losowaniu</h1>
+    <h:form>
+        <h:outputLabel>Podaj swoje dane: </h:outputLabel> <br/>
+        PESEL <h:inputText id="peselID" validatorMessage="Lenght must be beetween 10 and 12" name="pesel" required="true" value="#{Losowanie.pesel}" >
+         <f:validateLength minimum="10" maximum="12" for="peselID"/>
+        </h:inputText>
 
-      <h:commandButton value="Wyslij" action="#{Losowanie.wyslij}" > </h:commandButton>
-   </h:form>
+        <h:message for="peselID" style="color:red"/>
+        <br/>
+
+        IMIE <h:inputText id="nameId" validatorMessage="Required" name="name" required="true"  value="#{Losowanie.userName}"/>
+        <h:message for="nameId" style="color:red"/>
+        <br/>
+
+        WIEK <h:inputText id="ageID" name="age" validatorMessage="Age must be beetween 1 and 100" required="true"
+                          value="#{Losowanie.age}">
+        <f:validateDoubleRange minimum="1.0" maximum="110.0" for="ageID"/>
+    </h:inputText>
+        <h:message for="ageID" style="color:red"/>
+        <br/>
+
+
+        <h:commandButton value="Wyslij" action="#{Losowanie.wyslij}"> </h:commandButton>
+    </h:form>
 </h:body>
 </html>
