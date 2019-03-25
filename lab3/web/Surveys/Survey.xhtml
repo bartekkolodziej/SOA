@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xml:lang="en" lang="en">
+<h:head>
+    <h:outputScript library="javax.faces" name="jsf.js" target="head"/>
+
+    <title>Survey</title>
+</h:head>
+<body>
+
+<h2>Ankieta</h2>
+<h:form style="margin-left: 32px;">
+    Imię <h:inputText required="true" value="#{Survey.name}"> </h:inputText> <br/>
+    Email <h:inputText required="true" value="#{Survey.email}"> <f:validateRegex
+        pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/></h:inputText>
+    <br/>
+    Wiek <h:inputText value="#{Survey.age}"><f:validateLongRange minimum="10" maximum="100"/></h:inputText> <br/>
+    Płeć <h:selectOneMenu id="ajaxGender" value="#{Survey.gender}">
+    <f:ajax event="change" execute="ajaxGender" render="ajaxFemale ajaxMale"/>
+    <f:selectItem itemLabel="Mężczyzna" itemValue="male"/>
+    <f:selectItem itemLabel="Kobieta" itemValue="female"/>
+</h:selectOneMenu> <br/>
+    Wykształcenie <h:inputText value="#{Survey.education}"> </h:inputText> <br/>
+
+    <h:panelGroup id="ajaxMale">
+        <h:panelGroup rendered="#{Survey.isMale()}">
+            Wzrost <h:inputText validatorMessage="Wzrost musi być pomiędzy 165 a 200"
+                                value="#{Survey.height}"><f:validateLongRange minimum="165" maximum="200"/>
+        </h:inputText><br/>
+            Klatka <h:inputText value="#{Survey.chest}"> </h:inputText> <br/>
+            Pas <h:inputText  value="#{Survey.waistM}"> </h:inputText> <br/>
+        </h:panelGroup>
+    </h:panelGroup>
+
+    <h:panelGroup id="ajaxFemale">
+        <h:panelGroup rendered="#{not Survey.isMale()}">
+            Wzrost <h:inputText validatorMessage="Wzrost musi być pomiędzy 150 a 185"
+                                value="#{Survey.height}"><f:validateLongRange minimum="150" maximum="185"/>
+        </h:inputText><br/>
+            Obwód biustu <h:inputText required="true" value="#{Survey.bustCircuit}"> </h:inputText> <br/>
+            Wielkość miseczki <h:inputText required="true" value="#{Survey.cupSize}"> </h:inputText> <br/>
+            Talia <h:inputText required="true" value="#{Survey.waistF}"> </h:inputText> <br/>
+            Biodra <h:inputText required="true" value="#{Survey.hips}"> </h:inputText> <br/>
+        </h:panelGroup>
+    </h:panelGroup>
+
+    <h:commandButton value="Następny krok" id="nextStep" action="#{Survey.proceed}">
+        <f:ajax execute="nextStep" render="ajaxNextSection"/>
+    </h:commandButton> <br/> <br/>
+
+    <h:panelGroup id="ajaxNextSection" rendered="#{Survey.showNextSection}">
+        <h:panelGroup>
+            Ile jesteś w stanie przeznaczyc miesięcznie na zakup ubrania
+            <h:selectOneMenu value="#{Survey.monthCost}">
+                <f:selectItem itemLabel="100zł" itemValue="100"/>
+                <f:selectItem itemLabel="100zł-500zł" itemValue="100-500"/>
+                <f:selectItem itemLabel="powyżej 1000zł" itemValue="1000+"/>
+            </h:selectOneMenu> <br/>
+
+            Jak często dokonujesz zakupu ubrania?
+            <h:selectOneMenu value="#{Survey.frequencyOfBuying}">
+                <f:selectItem itemLabel="Codziennie" itemValue="daily"/>
+                <f:selectItem itemLabel="Raz w tygodniu" itemValue="onceAWeek"/>
+                <f:selectItem itemLabel="Raz w miesiącu" itemValue="onceAMonth"/>
+                <f:selectItem itemLabel="Kilka razy w roku" itemValue="fewTimesAYear"/>
+            </h:selectOneMenu> <br/><br/><br/>
+
+            W jakich kolorach preferujesz ubrania?
+            <h:selectManyCheckbox value="#{Survey.colors}">
+                <f:selectItem itemLabel="Kolorowo-jaskrawych" itemValue="colorfull" /> <br/>
+                <f:selectItem itemLabel="Stonowanych w szarościach" itemValue="subduded" /> <br/>
+                <f:selectItem itemLabel="W czerni i bieli" itemValue="blackAndWhite" /> <br/>
+                <f:selectItem itemLabel="W samej czerni" itemValue="black" /> <br/>
+            </h:selectManyCheckbox  >
+        </h:panelGroup>
+
+        <br/><br/><br/>
+        <h:commandButton value="Zapisz" id="save" action="#{Survey.save}">
+            <f:ajax execute="save" render="ajaxSummary"/>
+        </h:commandButton> <br/> <br/>
+    </h:panelGroup>
+
+    <h:panelGroup id="ajaxSummary" rendered="#{Survey.showSummary}">
+        <h:panelGroup>
+            sumary
+        </h:panelGroup>
+    </h:panelGroup>
+</h:form>
+
+</body>
+</html>
