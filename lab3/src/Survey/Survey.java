@@ -25,7 +25,6 @@ public class Survey {
     private String frequencyOfBuying;
     private List<String> colors = new LinkedList<>();
     private boolean showNextSection = false;
-    private boolean showSummary = false;
 
     public Survey() {
     }
@@ -162,15 +161,11 @@ public class Survey {
         return this.gender.equals("male");
     }
 
-    public boolean getShowSummary() {
-        return showSummary;
-    }
-
     public void proceed() {
         this.showNextSection = true;
     }
 
-    public void save() {
-        this.showSummary = true;
+    public String save() {
+        return "summarySurvey";
     }
 }

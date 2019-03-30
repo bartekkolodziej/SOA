@@ -13,11 +13,18 @@
 
 <h2>Ankieta</h2>
 <h:form style="margin-left: 32px;">
-    Imię <h:inputText required="true" value="#{Survey.name}"> </h:inputText> <br/>
-    Email <h:inputText required="true" value="#{Survey.email}"> <f:validateRegex
-        pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/></h:inputText>
-    <br/>
-    Wiek <h:inputText value="#{Survey.age}"><f:validateLongRange minimum="10" maximum="100"/></h:inputText> <br/>
+    Imię <h:inputText required="true" id="name" value="#{Survey.name}" requiredMessage=" Imię jest wymagane"/>
+    <h:message for="name"/> <br/>
+    Email <h:inputText required="true" requiredMessage=" Podaj mail we właściwej formie" id="email"
+                       value="#{Survey.email}">
+    <f:validateRegex
+            pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/></h:inputText>
+    <h:message for="email"/><br/>
+    Wiek <h:inputText value="#{Survey.age}" required="true" id="age"
+                      requiredMessage=" Wiek jest wymagany i powinien być pomiędzy 10 and 100">
+    <f:validateLongRange minimum="10" maximum="100"/>
+</h:inputText>
+    <h:message for="age"/><br/>
     Płeć <h:selectOneMenu id="ajaxGender" value="#{Survey.gender}">
     <f:ajax event="change" execute="ajaxGender" render="ajaxFemale ajaxMale"/>
     <f:selectItem itemLabel="Mężczyzna" itemValue="male"/>
@@ -27,19 +34,21 @@
 
     <h:panelGroup id="ajaxMale">
         <h:panelGroup rendered="#{Survey.isMale()}">
-            Wzrost <h:inputText validatorMessage="Wzrost musi być pomiędzy 165 a 200"
-                                value="#{Survey.height}"><f:validateLongRange minimum="165" maximum="200"/>
-        </h:inputText><br/>
+            Wzrost <h:inputText validatorMessage=" Wzrost musi być pomiędzy 165 a 200" id="heightM"
+                                value="#{Survey.height}"><f:validateLongRange minimum="165"
+                                                                              maximum="200"/></h:inputText>
+            <h:message for="heightM"/><br/>
             Klatka <h:inputText value="#{Survey.chest}"> </h:inputText> <br/>
-            Pas <h:inputText  value="#{Survey.waistM}"> </h:inputText> <br/>
+            Pas <h:inputText value="#{Survey.waistM}"> </h:inputText> <br/>
         </h:panelGroup>
     </h:panelGroup>
 
     <h:panelGroup id="ajaxFemale">
         <h:panelGroup rendered="#{not Survey.isMale()}">
-            Wzrost <h:inputText validatorMessage="Wzrost musi być pomiędzy 150 a 185"
-                                value="#{Survey.height}"><f:validateLongRange minimum="150" maximum="185"/>
-        </h:inputText><br/>
+            Wzrost <h:inputText validatorMessage="Wzrost musi być pomiędzy 150 a 185" id="heightF"
+                                value="#{Survey.height}"><f:validateLongRange minimum="150"
+                                                                              maximum="185"/></h:inputText>
+            <h:message for="heightF"/><br/>
             Obwód biustu <h:inputText required="true" value="#{Survey.bustCircuit}"> </h:inputText> <br/>
             Wielkość miseczki <h:inputText required="true" value="#{Survey.cupSize}"> </h:inputText> <br/>
             Talia <h:inputText required="true" value="#{Survey.waistF}"> </h:inputText> <br/>
@@ -47,12 +56,13 @@
         </h:panelGroup>
     </h:panelGroup>
 
-    <h:commandButton value="Następny krok" id="nextStep" action="#{Survey.proceed}">
-        <f:ajax execute="nextStep" render="ajaxNextSection"/>
-    </h:commandButton> <br/> <br/>
+    <h:commandButton value="Następny krok" action="#{Survey.proceed}"/> <br/> <br/>
+</h:form>
 
-    <h:panelGroup>
-        <h:panelGroup id="ajaxNextSection" rendered="#{Survey.showNextSection}">
+
+<h:panelGroup>
+    <h:panelGroup id="ajaxNextSection" rendered="#{Survey.showNextSection}">
+        <h:form>
             Ile jesteś w stanie przeznaczyc miesięcznie na zakup ubrania
             <h:selectOneMenu value="#{Survey.monthCost}">
                 <f:selectItem itemLabel="100zł" itemValue="100"/>
@@ -70,25 +80,15 @@
 
             W jakich kolorach preferujesz ubrania?
             <h:selectManyCheckbox value="#{Survey.colors}">
-                <f:selectItem itemLabel="Kolorowo-jaskrawych" itemValue="colorfull" /> <br/>
-                <f:selectItem itemLabel="Stonowanych w szarościach" itemValue="subduded" /> <br/>
-                <f:selectItem itemLabel="W czerni i bieli" itemValue="blackAndWhite" /> <br/>
-                <f:selectItem itemLabel="W samej czerni" itemValue="black" /> <br/>
-            </h:selectManyCheckbox  >
-        </h:panelGroup>
-
-        <br/><br/><br/>
-        <h:commandButton value="Zapisz" id="save" action="#{Survey.save}">
-            <f:ajax execute="save" render="ajaxSummary"/>
-        </h:commandButton> <br/> <br/>
+                <f:selectItem itemLabel="Kolorowo-jaskrawych" itemValue="colorfull"/> <br/>
+                <f:selectItem itemLabel="Stonowanych w szarościach" itemValue="subduded"/> <br/>
+                <f:selectItem itemLabel="W czerni i bieli" itemValue="blackAndWhite"/> <br/>
+                <f:selectItem itemLabel="W samej czerni" itemValue="black"/> <br/>
+            </h:selectManyCheckbox>
+            <br/><br/><br/>
+            <h:commandButton value="Zapisz" id="save" action="#{Survey.save}"/>
+        </h:form>
     </h:panelGroup>
-
-    <h:panelGroup id="ajaxSummary" rendered="#{Survey.showSummary}">
-        <h:panelGroup>
-            sumary
-        </h:panelGroup>
-    </h:panelGroup>
-</h:form>
-
+</h:panelGroup>
 </body>
 </html>
