@@ -55,13 +55,4 @@
             <to-view-id>/zad1/zgadywanie.xhtml.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
-
-    <navigation-rule>
-        <from-view-id>/zad5/Survey.xhtml</from-view-id>
-        <navigation-case>
-            <from-action>#{Survey.proceed}</from-action>
-            <from-outcome>summarySurvey</from-outcome>
-            <to-view-id>/zad5/summarySurvey.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
 </faces-config>

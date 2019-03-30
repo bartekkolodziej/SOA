@@ -25,8 +25,21 @@ public class Survey {
     private String frequencyOfBuying;
     private List<String> colors = new LinkedList<>();
     private boolean showNextSection = false;
+    private boolean showSummary = false;
+    private int addClicks = 0;
+
+
+    public int getAddClicks() {
+        return addClicks;
+    }
+
+    public void setAddClicks(int adClicks) {
+        System.out.println(this.addClicks + "   " + adClicks);
+        this.addClicks = adClicks;
+    }
 
     public Survey() {
+
     }
 
     public String getMonthCost() {
@@ -129,6 +142,18 @@ public class Survey {
         return age;
     }
 
+    public boolean isShowNextSection() {
+        return showNextSection;
+    }
+
+    public boolean isShowSummary() {
+        return showSummary;
+    }
+
+    public void setShowSummary(boolean showSummary) {
+        this.showSummary = showSummary;
+    }
+
     public void setAge(int age) {
         this.age = age;
     }
@@ -161,11 +186,12 @@ public class Survey {
         return this.gender.equals("male");
     }
 
-    public void proceed() {
+    public void proceedFirstSection() {
         this.showNextSection = true;
     }
 
-    public String save() {
-        return "summarySurvey";
+    public void proceedSecondSection() {
+        System.out.println("summary section");
+        this.showSummary = true;
     }
 }
