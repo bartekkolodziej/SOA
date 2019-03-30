@@ -51,8 +51,8 @@
         <f:ajax execute="nextStep" render="ajaxNextSection"/>
     </h:commandButton> <br/> <br/>
 
-    <h:panelGroup id="ajaxNextSection" rendered="#{Survey.showNextSection}">
-        <h:panelGroup>
+    <h:panelGroup>
+        <h:panelGroup id="ajaxNextSection" rendered="#{Survey.showNextSection}">
             Ile jesteś w stanie przeznaczyc miesięcznie na zakup ubrania
             <h:selectOneMenu value="#{Survey.monthCost}">
                 <f:selectItem itemLabel="100zł" itemValue="100"/>

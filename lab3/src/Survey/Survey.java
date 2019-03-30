@@ -2,7 +2,6 @@ package Survey;
 
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-import javax.faces.event.AjaxBehaviorEvent;
 import java.util.LinkedList;
 import java.util.List;
 

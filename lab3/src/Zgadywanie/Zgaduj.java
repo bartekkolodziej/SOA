@@ -41,7 +41,7 @@ public class Zgaduj {
 
     public String losuj(){
         this.randomNumber = (int)(Math.random() * 5 + 1);
-        return "Zgadywanie";
+        return "zgadywanie";
     }
 
     public String wyslij(int number) {

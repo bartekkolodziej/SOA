@@ -5,60 +5,64 @@
     http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
 
     <navigation-rule>
-        <from-view-id>/index.xhtml</from-view-id>
+        <from-view-id>/Wstep/index.xhtml</from-view-id>
         <navigation-case>
             <from-action>#{Losowanie.wyslij}</from-action>
             <from-outcome>OK</from-outcome>
-            <to-view-id>/wygrana.xhtml</to-view-id>
+            <to-view-id>/Wstep/wygrana.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-action>#{Losowanie.wyslij}</from-action>
             <from-outcome>NOT_OK</from-outcome>
-            <to-view-id>/przegrana.xhtml</to-view-id>
+            <to-view-id>/Wstep/przegrana.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 
     <navigation-rule>
-        <from-view-id>/Zgadywanie.xhtml</from-view-id>
+        <from-view-id>/zad2/currencyConversion.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{Currencies.convert}</from-action>
+            <from-outcome>exchanged</from-outcome>
+            <to-view-id>/zad1/exchanged.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/zad1/zgadywanie.xhtml.xhtml</from-view-id>
         <navigation-case>
             <from-action>#{Zgaduj.wyslij}</from-action>
             <from-outcome>1</from-outcome>
-            <to-view-id>/1.xhtml</to-view-id>
+            <to-view-id>/zad1/1.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-action>#{Zgaduj.wyslij}</from-action>
             <from-outcome>2</from-outcome>
-            <to-view-id>/2.xhtml</to-view-id>
+            <to-view-id>/zad1/2.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-action>#{Zgaduj.wyslij}</from-action>
             <from-outcome>3</from-outcome>
-            <to-view-id>/3.xhtml</to-view-id>
+            <to-view-id>/zad1/3.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-action>#{Zgaduj.wyslij}</from-action>
             <from-outcome>4</from-outcome>
-            <to-view-id>/4.xhtml</to-view-id>
+            <to-view-id>/zad1/4.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-action>#{Zgaduj.wyslij}</from-action>
             <from-outcome>5</from-outcome>
-            <to-view-id>/4.xhtml</to-view-id>
+            <to-view-id>/zad1/4.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-action>#{Zgaduj.wyslij}</from-action>
-            <from-outcome>trafiont</from-outcome>
-            <to-view-id>/trafiony.xhtml</to-view-id>
+            <from-outcome>trafiony</from-outcome>
+            <to-view-id>/zad1/trafiony.xhtml</to-view-id>
         </navigation-case>
-    </navigation-rule>
-
-    <navigation-rule>
-        <from-view-id>/trafiony.xhtml</from-view-id>
         <navigation-case>
             <from-action>#{Zgaduj.losuj}</from-action>
             <from-outcome>Zgadywanie</from-outcome>
-            <to-view-id>/Zgadywanie.xhtml</to-view-id>
+            <to-view-id>/zad1/zgadywanie.xhtml.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
-  
 </faces-config>

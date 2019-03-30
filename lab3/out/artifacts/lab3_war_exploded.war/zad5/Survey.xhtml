@@ -51,6 +51,7 @@
         <f:ajax execute="nextStep" render="ajaxNextSection"/>
     </h:commandButton> <br/> <br/>
 
+    <h:panelGroup>
         <h:panelGroup id="ajaxNextSection" rendered="#{Survey.showNextSection}">
             Ile jesteś w stanie przeznaczyc miesięcznie na zakup ubrania
             <h:selectOneMenu value="#{Survey.monthCost}">
@@ -80,6 +81,7 @@
         <h:commandButton value="Zapisz" id="save" action="#{Survey.save}">
             <f:ajax execute="save" render="ajaxSummary"/>
         </h:commandButton> <br/> <br/>
+    </h:panelGroup>
 
     <h:panelGroup id="ajaxSummary" rendered="#{Survey.showSummary}">
         <h:panelGroup>

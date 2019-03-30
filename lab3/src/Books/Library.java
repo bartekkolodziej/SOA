@@ -14,9 +14,9 @@ public class Library {
     private Vector<Book> selectedBooks = new Vector<>();
     private double minPrice = 0;
     private double maxPrice = 999999;
-    private String type = " ";
-    private String title = " ";
-    private String author = " ";
+    private String type = "";
+    private String title = "";
+    private String author = "";
     private String currency = "PLN";
 
     public String getCurrency() {
@@ -128,12 +128,13 @@ public class Library {
     }
 
     public Vector<Book> getBooks() {
-
         Vector<Book> books = new Vector<>();
         for (Book b : this.books) {
-            if (b.getCurrencyPrice().get(this.currency) > this.minPrice && b.getCurrencyPrice().get(this.currency) < this.maxPrice && (b.getType().toLowerCase().equals(this.type.toLowerCase()) || this.type.equals(" "))
-                    && (b.getTitle().toLowerCase().contains(this.title) || this.title.equals(" "))
-                    && (b.getAuthor().toLowerCase().contains(this.author) || this.author.equals(" "))) {
+            System.out.println("rest   " + this.type.toString() + "asd");
+            System.out.println( this.type.equals("") || b.getType().toLowerCase().equals(this.type.toLowerCase()));
+            if (b.getCurrencyPrice().get(this.currency) > this.minPrice && b.getCurrencyPrice().get(this.currency) < this.maxPrice && ( this.type.equals("") || this.type.equals(" ") || b.getType().toLowerCase().equals(this.type.toLowerCase()) )
+                    && (b.getTitle().toLowerCase().contains(this.title) || this.title.equals(""))
+                    && (b.getAuthor().toLowerCase().contains(this.author) || this.author.equals(""))) {
                 books.add(b);
             }
         }
