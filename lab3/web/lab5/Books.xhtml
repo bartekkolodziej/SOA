@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xml:lang="en" lang="en">
+<h:head>
+    <h:outputScript library="javax.faces" name="jsf.js" target="head"/>
+
+    <style type="text/css">
+        td {
+            width: 10vw;
+            border: 1px solid black;
+            margin: 0;
+        }
+    </style>
+
+    <title>BooksDB</title>
+</h:head>
+<body>
+
+<div style="display: flex">
+    <h:dataTable value="${LibraryDB.books}" id="ajaxOutputBooks" var="book">
+        <h:column>
+            <f:facet name="header">Title</f:facet>
+            ${book.title}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Author first name</f:facet>
+            ${book.author_first_name}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Author second name</f:facet>
+            ${book.author_second_name}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header" >ISBN</f:facet>
+            ${book.isbn}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Publication date</f:facet>
+            ${book.publication_date}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Price</f:facet>
+            ${book.price}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Add</f:facet>
+            <h:commandButton value="+" action="#{LibraryDB.addBookDB(book)}">
+                <f:ajax render="ajaxOutputSelectedBooks ajaxOutputBooks"/>
+            </h:commandButton>
+        </h:column>
+
+    </h:dataTable>
+
+</div>
+
+
+<div style="margin-top: 64px">
+    <h2>Selected books</h2>
+    <h:dataTable value="${LibraryDB.selectedBooks}" id="ajaxOutputSelectedBooks" var="book">
+        <h:column>
+            <f:facet name="header">Title</f:facet>
+            ${book.title}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Author first name</f:facet>
+            ${book.author_first_name}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Author second name</f:facet>
+            ${book.author_second_name}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header" >ISBN</f:facet>
+            ${book.isbn}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Publication date</f:facet>
+            ${book.publication_date}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Price</f:facet>
+            ${book.price}
+        </h:column>
+    </h:dataTable>
+
+</div>
+
+
+</body>
+</html>
