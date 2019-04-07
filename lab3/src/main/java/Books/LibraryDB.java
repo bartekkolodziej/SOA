@@ -29,7 +29,7 @@ public class LibraryDB {
                     (int) (Math.random() * 200 )));
         }
 
-        this.selectBooksFromDB();
+        this.getSelectedBooksFromDB();
     }
 
     public Vector<BookDB> getBooks() {
@@ -40,43 +40,22 @@ public class LibraryDB {
         return selectedBooks;
     }
 
-    private void selectBooksFromDB() {
-        EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence
-                .createEntityManagerFactory("JPA-Zajecia");
-        EntityManager manager = ENTITY_MANAGER_FACTORY.createEntityManager();
-        EntityTransaction transaction = null;
-
+    private void getSelectedBooksFromDB() {
         List books = null;
 
-        try {
-            // Get a transaction
-            transaction = manager.getTransaction();
-            // Begin the transaction
-            transaction.begin();
-
-            // Get a List of Books
-            books = manager.createQuery("SELECT s FROM BookDB s", BookDB.class).getResultList();
-
-            // Commit the transaction
-            transaction.commit();
-        } catch (Exception ex) {
-            // If there are any exceptions, roll back the changes
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            // Print the Exception
-            ex.printStackTrace();
-        } finally {
-            // Close the EntityManager
-            manager.close();
-        }
+        books = CatalogDB.getBooksFromDB();
 
         if(books != null)
             this.selectedBooks = new Vector<BookDB>(books);
     }
 
 
-    public void addBookDB(BookDB book) {
+    public void selectBook(BookDB book) {
+        for(BookDB b : this.selectedBooks){
+            if(b.getId() == book.getId())
+                return;
+        }
+
         this.selectedBooks = new Vector<>();
         EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence
                 .createEntityManagerFactory("JPA-Zajecia");
@@ -116,7 +95,12 @@ public class LibraryDB {
             manager.close();
         }
 
-        this.selectBooksFromDB();
+        this.getSelectedBooksFromDB();
+    }
+
+    public void removeFromSelected(BookDB book) {
+        CatalogDB.removeBookFromDB(book);
+        this.getSelectedBooksFromDB();
     }
 
 

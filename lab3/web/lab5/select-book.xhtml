@@ -20,41 +20,43 @@
 <body>
 
 <div style="display: flex">
-    <h:dataTable value="${LibraryDB.books}" id="ajaxOutputBooks" var="book">
+    <h:dataTable value="#{LibraryDB.books}" id="ajaxOutputBooks" var="book">
         <h:column>
             <f:facet name="header">Title</f:facet>
-            ${book.title}
+            #{book.title}
         </h:column>
 
         <h:column>
             <f:facet name="header">Author first name</f:facet>
-            ${book.author_first_name}
+            #{book.author_first_name}
         </h:column>
 
         <h:column>
             <f:facet name="header">Author second name</f:facet>
-            ${book.author_second_name}
+            #{book.author_second_name}
         </h:column>
 
         <h:column>
             <f:facet name="header" >ISBN</f:facet>
-            ${book.isbn}
+            #{book.isbn}
         </h:column>
 
         <h:column>
             <f:facet name="header">Publication date</f:facet>
-            ${book.publication_date}
+            #{book.publication_date}
         </h:column>
 
         <h:column>
             <f:facet name="header">Price</f:facet>
-            ${book.price}
+            #{book.price}
         </h:column>
         <h:column>
             <f:facet name="header">Add</f:facet>
-            <h:commandButton value="+" action="#{LibraryDB.addBookDB(book)}">
-                <f:ajax render="ajaxOutputSelectedBooks ajaxOutputBooks"/>
-            </h:commandButton>
+            <h:form>
+                <h:commandButton value="+" action="#{LibraryDB.selectBook(book)}">
+                    <f:ajax render="ajaxOutputSelectedBooks ajaxOutputBooks"/>
+                </h:commandButton>
+            </h:form>
         </h:column>
 
     </h:dataTable>
@@ -64,35 +66,43 @@
 
 <div style="margin-top: 64px">
     <h2>Selected books</h2>
-    <h:dataTable value="${LibraryDB.selectedBooks}" id="ajaxOutputSelectedBooks" var="book">
+    <h:dataTable value="#{LibraryDB.selectedBooks}" id="ajaxOutputSelectedBooks" var="book">
         <h:column>
             <f:facet name="header">Title</f:facet>
-            ${book.title}
+            #{book.title}
         </h:column>
 
         <h:column>
             <f:facet name="header">Author first name</f:facet>
-            ${book.author_first_name}
+            #{book.author_first_name}
         </h:column>
 
         <h:column>
             <f:facet name="header">Author second name</f:facet>
-            ${book.author_second_name}
+            #{book.author_second_name}
         </h:column>
 
         <h:column>
             <f:facet name="header" >ISBN</f:facet>
-            ${book.isbn}
+            #{book.isbn}
         </h:column>
 
         <h:column>
             <f:facet name="header">Publication date</f:facet>
-            ${book.publication_date}
+            #{book.publication_date}
         </h:column>
 
         <h:column>
             <f:facet name="header">Price</f:facet>
-            ${book.price}
+            #{book.price}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Remove</f:facet>
+            <h:form>
+                <h:commandButton value="-" action="#{LibraryDB.removeFromSelected(book)}">
+                    <f:ajax render="ajaxOutputSelectedBooks ajaxOutputBooks"/>
+                </h:commandButton>
+            </h:form>
         </h:column>
     </h:dataTable>
 

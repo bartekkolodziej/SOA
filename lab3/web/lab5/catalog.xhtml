@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <h:outputScript library="javax.faces" name="jsf.js" target="head"/>
+
+    <style type="text/css">
+        td {
+            width: 10vw;
+            border: 1px solid black;
+            margin: 0;
+        }
+    </style>
+
+    <title>BooksDB</title>
+</h:head>
+<body>
+<div style="display: flex">
+    <h:dataTable value="#{CatalogDB.books}" id="ajaxOutputBooks" var="book">
+        <h:column>
+            <f:facet name="header">Title</f:facet>
+            #{book.title}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Author first name</f:facet>
+            #{book.author_first_name}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Author second name</f:facet>
+            #{book.author_second_name}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">ISBN</f:facet>
+            #{book.isbn}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Publication date</f:facet>
+            #{book.publication_date}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Price</f:facet>
+            #{book.price}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Remove</f:facet>
+            <h:form>
+                <h:commandButton value="-" action="#{CatalogDB.removeBook(book)}">
+                    <f:ajax render="ajaxOutputBooks"/>
+                </h:commandButton>
+            </h:form>
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Edit</f:facet>
+            <h:form>
+                <h:commandButton value="Edit" action="#{CatalogDB.setBookToEdit(book)}">
+                    <f:ajax render="ajaxEditBook"/>
+                </h:commandButton>
+            </h:form>
+        </h:column>
+    </h:dataTable>
+
+    <div style="padding-left: 32px; width: 200px">
+        <h2>Book to add</h2>
+        <h:form  id="ajaxAddBook">
+            Title <h:inputText id="ajaxTitle" label="Title" value="#{CatalogDB.title}"> </h:inputText> <br/>
+            Author first name <h:inputText id="ajaxAuthorFirstName" label="Author first name"
+                                           value="#{CatalogDB.author_first_name}"> </h:inputText> <br/>
+            Author second name <h:inputText id="ajaxAuthorSecondName" label="Author second name"
+                                            value="#{CatalogDB.author_second_name}"> </h:inputText> <br/>
+            ISBN <h:inputText id="ajaxISBN" label="ISBN" value="#{CatalogDB.isbn}"> </h:inputText> <br/>
+            Publication date <h:inputText id="ajaxPublicationDate" label="Publication date"
+                                          value="#{CatalogDB.publication_date}"> </h:inputText> <br/>
+            Price <h:inputText id="ajaxPrice" label="Price" value="#{CatalogDB.price}"> </h:inputText> <br/>
+
+            <h:commandButton value="Add book" action="#{CatalogDB.addBook()}">
+                <f:ajax execute="ajaxTitle ajaxAuthorFirstName ajaxAuthorSecondName ajaxISBN ajaxPublicationDate ajaxPrice"
+                        render="ajaxOutputBooks"/>
+            </h:commandButton>
+        </h:form>
+    </div>
+
+    <div style="padding-left: 32px; width: 200px">
+        <h2>Selected book</h2>
+        <h:form id="ajaxEditBook">
+            Title <h:inputText id="ajaxTitleEdit" label="Title" value="#{CatalogDB.bookToEdit.title}"> </h:inputText> <br/>
+            Author first name <h:inputText id="ajaxAuthorFirstNameEdit" label="Author first name"
+                                           value="#{CatalogDB.bookToEdit.author_first_name}"> </h:inputText> <br/>
+            Author second name <h:inputText id="ajaxAuthorSecondNameEdit" label="Author second name"
+                                            value="#{CatalogDB.bookToEdit.author_second_name}"> </h:inputText> <br/>
+            ISBN <h:inputText id="ajaxISBNEdit" label="ISBN" value="#{CatalogDB.bookToEdit.isbn}"> </h:inputText> <br/>
+            Publication date <h:inputText id="ajaxPublicationDateEdit" label="Publication date"
+                                          value="#{CatalogDB.bookToEdit.publication_date}"> </h:inputText> <br/>
+            Price <h:inputText id="ajaxPriceEdit" label="Price" value="#{CatalogDB.bookToEdit.price}"> </h:inputText> <br/>
+
+            <h:commandButton value="Edit book" action="#{CatalogDB.editBook()}">
+                <f:ajax execute="ajaxTitleEdit ajaxAuthorFirstNameEdit ajaxAuthorSecondNameEdit ajaxISBNEdit ajaxPublicationDateEdit ajaxPriceEdit"
+                        render="ajaxOutputBooks"/>
+            </h:commandButton>
+        </h:form>
+    </div>
+
+
+</div>
+</body>
+</html>
