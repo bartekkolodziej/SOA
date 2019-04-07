@@ -12,7 +12,7 @@ public class Survey {
     private String name;
     private String email;
     private int age;
-    private String gender = "male";
+    private String gender = "Mężczyzna";
     private String education;
     private int height;
     private double bustCircuit;
@@ -33,9 +33,9 @@ public class Survey {
         return addClicks;
     }
 
-    public void setAddClicks(int adClicks) {
-        System.out.println(this.addClicks + "   " + adClicks);
-        this.addClicks = adClicks;
+    public void setAddClicks(int addClicks) {
+        System.out.println(this.addClicks + "   " + addClicks);
+        this.addClicks = addClicks;
     }
 
     public Survey() {
@@ -183,15 +183,15 @@ public class Survey {
     }
 
     public boolean isMale(){
-        return this.gender.equals("male");
+        return this.gender.equals("Mężczyzna");
     }
 
     public void proceedFirstSection() {
+        System.out.println(this.isMale());
         this.showNextSection = true;
     }
 
     public void proceedSecondSection() {
-        System.out.println("summary section");
         this.showSummary = true;
     }
 }

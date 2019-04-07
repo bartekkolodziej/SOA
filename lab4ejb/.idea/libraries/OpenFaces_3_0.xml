@@ -1,0 +1,24 @@
+<component name="libraryTable">
+  <library name="OpenFaces-3.0" type="jsf-openfaces">
+    <properties version="3.0" />
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/ejb3-server-war/lib/redistribution.txt" />
+      <root url="file://$PROJECT_DIR$/ejb3-server-war/lib/openfaces-license.txt" />
+      <root url="jar://$PROJECT_DIR$/ejb3-server-war/lib/sac.jar!/" />
+      <root url="file://$PROJECT_DIR$/ejb3-server-war/lib/commons-codec-1.3-license.txt" />
+      <root url="file://$PROJECT_DIR$/ejb3-server-war/lib/cssparser-0.9.4-license.txt" />
+      <root url="jar://$PROJECT_DIR$/ejb3-server-war/lib/cssparser.jar!/" />
+      <root url="file://$PROJECT_DIR$/ejb3-server-war/lib/dojo-license.txt" />
+      <root url="jar://$PROJECT_DIR$/ejb3-server-war/lib/jcommon.jar!/" />
+      <root url="file://$PROJECT_DIR$/ejb3-server-war/lib/jdom-1.0-license.txt" />
+      <root url="file://$PROJECT_DIR$/ejb3-server-war/lib/json-license.txt" />
+      <root url="file://$PROJECT_DIR$/ejb3-server-war/lib/jfreechart-license.txt" />
+      <root url="file://$PROJECT_DIR$/ejb3-server-war/lib/myfaces-license.txt" />
+      <root url="jar://$PROJECT_DIR$/ejb3-server-war/lib/commons-collections_2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ejb3-server-war/lib/jfreechart.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ejb3-server-war/lib/openfaces.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,33 @@
+<component name="libraryTable">
+  <library name="IceFaces-3.1.0" type="jsf-icefaces">
+    <properties version="3.1.0" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ejb3-server-war/lib/commons-beanutils.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ejb3-server-war/lib/commons-digester.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ejb3-server-war/lib/icepush.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ejb3-server-war/lib/commons-logging.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ejb3-server-war/lib/el-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ejb3-server-war/lib/icefaces.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ejb3-server-war/lib/krysalis-jCharts-1.0.0-alpha-1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ejb3-server-war/lib/commons-collections.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ejb3-server-war/lib/FastInfoset.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ejb3-server-war/lib/el-api-2.2.1-b03.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ejb3-server-war/lib/javax.annotation.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ejb3-server-war/lib/portletfaces-bridge-2.0.2-ice-7875.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ejb3-server-war/lib/portlet2-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ejb3-server-war/lib/javax.servlet.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ejb3-server-war/lib/jstl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ejb3-server-war/lib/javax.servlet.jsp.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ejb3-server-war/lib/jxl.jar!/" />
+      <root url="file://$PROJECT_DIR$/ejb3-server-war/lib/ApacheLICENSE-2.0.txt" />
+      <root url="file://$PROJECT_DIR$/ejb3-server-war/lib/MIT-LICENSE.txt" />
+      <root url="file://$PROJECT_DIR$/ejb3-server-war/lib/NOTICE.txt" />
+      <root url="file://$PROJECT_DIR$/ejb3-server-war/lib/CDDL-1.0.txt" />
+      <root url="jar://$PROJECT_DIR$/ejb3-server-war/lib/poi-3.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ejb3-server-war/lib/icefaces-compat.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ejb3-server-war/lib/icefaces-ace.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

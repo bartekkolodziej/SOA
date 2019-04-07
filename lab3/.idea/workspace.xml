@@ -63,20 +63,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Survey.xhtml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Survey.xhtml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/zad5/Survey.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="131" column="47" selection-start-line="131" selection-start-column="47" selection-end-line="131" selection-end-column="47" />
+            <state relative-caret-position="510">
+              <caret line="57" column="73" lean-forward="true" selection-start-line="57" selection-start-column="73" selection-end-line="57" selection-end-column="73" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Survey.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Survey.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Survey/Survey.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="36" column="60" selection-start-line="36" selection-start-column="60" selection-end-line="36" selection-end-column="60" />
+            <state relative-caret-position="138">
+              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
               <folding>
                 <element signature="e#820#821#0" expanded="true" />
                 <element signature="e#852#853#0" expanded="true" />
@@ -86,8 +86,8 @@
                 <element signature="e#2845#2846#0" expanded="true" />
                 <element signature="e#2900#2901#0" expanded="true" />
                 <element signature="e#2946#2947#0" expanded="true" />
-                <element signature="e#3569#3570#0" expanded="true" />
-                <element signature="e#3612#3613#0" expanded="true" />
+                <element signature="e#3957#3958#0" expanded="true" />
+                <element signature="e#3996#3997#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -214,8 +214,8 @@
         <option value="$PROJECT_DIR$/web/zad5/nextStep.xhtml" />
         <option value="$PROJECT_DIR$/web/zad5/summarySurvey.xhtml" />
         <option value="$PROJECT_DIR$/web/WEB-INF/faces-config.xml" />
-        <option value="$PROJECT_DIR$/src/Survey/Survey.java" />
         <option value="$PROJECT_DIR$/web/zad5/Survey.xhtml" />
+        <option value="$PROJECT_DIR$/src/Survey/Survey.java" />
       </list>
     </option>
   </component>
@@ -473,12 +473,12 @@
       <workItem from="1553891132800" duration="36000" />
       <workItem from="1553938547991" duration="9036000" />
       <workItem from="1553957225291" duration="6371000" />
-      <workItem from="1553968510771" duration="4826000" />
+      <workItem from="1553968510771" duration="8455000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75000000" />
+    <option name="totallyTimeSpent" value="78629000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -513,7 +513,7 @@
       <window_info anchor="bottom" id="Java Enterprise" order="9" weight="0.32897604" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="13" visible="true" weight="0.32897604" />
+      <window_info anchor="bottom" id="Run" order="13" weight="0.32897604" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32570806" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49837133" visible="true" weight="0.12793177" />
       <window_info id="Web" order="6" side_tool="true" />
@@ -885,10 +885,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/zad5/Survey.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="57" column="73" lean-forward="true" selection-start-line="57" selection-start-column="73" selection-end-line="57" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Survey/Survey.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="36" column="60" selection-start-line="36" selection-start-column="60" selection-end-line="36" selection-end-column="60" />
+        <state relative-caret-position="138">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
           <folding>
             <element signature="e#820#821#0" expanded="true" />
             <element signature="e#852#853#0" expanded="true" />
@@ -898,16 +905,9 @@
             <element signature="e#2845#2846#0" expanded="true" />
             <element signature="e#2900#2901#0" expanded="true" />
             <element signature="e#2946#2947#0" expanded="true" />
-            <element signature="e#3569#3570#0" expanded="true" />
-            <element signature="e#3612#3613#0" expanded="true" />
+            <element signature="e#3957#3958#0" expanded="true" />
+            <element signature="e#3996#3997#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/zad5/Survey.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="131" column="47" selection-start-line="131" selection-start-column="47" selection-end-line="131" selection-end-column="47" />
         </state>
       </provider>
     </entry>

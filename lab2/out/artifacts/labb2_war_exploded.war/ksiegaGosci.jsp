@@ -28,7 +28,7 @@
         Vector<Wpis> feedback = (Vector<Wpis>) session.getAttribute("feedback");
         if(feedback != null){
             for (Wpis e : feedback) {
-                out.println("<span>" + e.name + " ("+ e.mail+") pisze: <br> "+e.comment+"</span><br>");
+                out.println("<span>" + e.name + " ("+ e.mail+") pisze: <br> "+e.comment+"</span><br><br><br>");
             }
         }
 

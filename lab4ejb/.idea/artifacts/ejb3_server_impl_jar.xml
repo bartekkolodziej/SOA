@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ejb3-server-impl:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ejb3_server_impl_jar</output-path>
+    <root id="archive" name="ejb3-server-impl.jar">
+      <element id="module-output" name="ejb3-server-impl" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/ejb3-server-impl/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>
