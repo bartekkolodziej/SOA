@@ -44,7 +44,7 @@ public class Library {
                 currencyPrice.put("RUB", BigDecimal.valueOf(randomPrice / 0.0591).setScale(2, RoundingMode.HALF_UP).doubleValue());
                 currencyPrice.put("JPY", BigDecimal.valueOf(randomPrice / 0.034446).setScale(2, RoundingMode.HALF_UP).doubleValue());
             }
-            this.books.add(new Book(this.getRandomString(), this.getRandomString(), type[(int) (Math.random() * 6)], currencyPrice, (int) (Math.random() * 200 + 1)));
+            this.books.add(new Book(this.getRandomString(18), this.getRandomString(18), type[(int) (Math.random() * 6)], currencyPrice, (int) (Math.random() * 200 + 1)));
         }
 
     }
@@ -109,11 +109,11 @@ public class Library {
 
     }
 
-    private String getRandomString() {
-        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    public static String getRandomString(int length) {
+        String SALTCHARS = "qwertyuiopasdfghjklzxcvbnm";
         StringBuilder salt = new StringBuilder();
         Random rnd = new Random();
-        while (salt.length() < 18) { // length of the random string.
+        while (salt.length() < length) {
             int index = (int) (rnd.nextFloat() * SALTCHARS.length());
             salt.append(SALTCHARS.charAt(index));
         }

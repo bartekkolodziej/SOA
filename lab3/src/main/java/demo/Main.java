@@ -1,44 +1,63 @@
 package demo;
 
+import Books.Library;
+import Library.Book;
+import Library.Reader;
+import Library.Rental;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.Date;
 import java.util.List;
+import java.util.Vector;
 
 public class Main {
     // Create an EntityManagerFactory when you start the application.
 
 
     public static void main() {
-
         EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence
                 .createEntityManagerFactory("JPA-Zajecia");
         EntityManager manager = ENTITY_MANAGER_FACTORY.createEntityManager();
         EntityTransaction transaction = null;
 
-        // Create two Students
-        create(11, "das", 242); // Alice will get an id 1
-        create(22, "Bdasdob", 202); // Bob will get an id 2
-        create(33, "fgfdgdfg", 251); // Charlie will get an id 3
+        transaction = manager.getTransaction();
+        transaction.begin();
+        for(int i=1; i<10; i++){
+            Book book = new Book();
+            book.setId(i);
+            book.setAuthor_id(i);
+            book.setTitle(Library.getRandomString(10));
 
-        // Update the age of Bob using the id
-        upate(22, "Bob", 25);
-
-        // Delete the Alice from database
-        //delete(1);
-
-        // Print all the Students
-        List students = readAll();
-        System.out.println("Students: ");
-        if (students != null) {
-            for (Object stu : students) {
-                System.out.println(stu);
-            }
+            manager.persist(book);
         }
 
+        transaction.commit();
+
+//        // Create two Students
+//        create(11, "das", 242); // Alice will get an id 1
+//        create(22, "Bdasdob", 202); // Bob will get an id 2
+//        create(33, "fgfdgdfg", 251); // Charlie will get an id 3
+//
+//        // Update the age of Bob using the id
+//        upate(22, "Bob", 25);
+//
+//        // Delete the Alice from database
+//        //delete(1);
+//
+//        // Print all the Students
+//        List students = readAll();
+//        System.out.println("Students: ");
+//        if (students != null) {
+//            for (Object stu : students) {
+//                System.out.println(stu);
+//            }
+//        }
+
         // NEVER FORGET TO CLOSE THE ENTITY_MANAGER_FACTORY
-        ENTITY_MANAGER_FACTORY.close();
+        manager.close();
     }
 
     /**

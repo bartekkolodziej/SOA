@@ -10,6 +10,9 @@
 
         <class>demo.Student</class>
         <class>Books.BookDB</class>
+        <class>Library.Book</class>
+        <class>Library.Reader</class>
+        <class>Library.Rental</class>
 
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
